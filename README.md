@@ -9,3 +9,11 @@ Michael Berlian (2201797424)
 ---
 
 >> Run the code from tree_latex.py
+
+---
+NOTE: 
+If you need assistance regarding the syntax format, please open "SYNTAX DOCUMENT.docx" file!
+
+---
+
+Enjoy!
