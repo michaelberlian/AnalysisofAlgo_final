@@ -1,0 +1,4153 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> MiM
+Rule 1     MiM -> expression
+Rule 2     MiM -> equation
+Rule 3     MiM -> logical_expr
+Rule 4     MiM -> empty
+Rule 5     expression -> fraction openingBracket expression comma expression closingBracket
+Rule 6     expression -> root openingBracket expression comma expression closingBracket
+Rule 7     expression -> log openingBracket int comma expression closingBracket
+Rule 8     expression -> log openingBracket variable comma expression closingBracket
+Rule 9     expression -> trigono openingBracket expression closingBracket
+Rule 10    expression -> sin openingBracket expression closingBracket
+Rule 11    expression -> cos openingBracket expression closingBracket
+Rule 12    expression -> tan openingBracket expression closingBracket
+Rule 13    equation -> sigma openingBracket assign comma infinity comma expression closingBracket
+Rule 14    equation -> sigma openingBracket assign comma int comma expression closingBracket
+Rule 15    equation -> integral openingBracket int comma infinity comma expression closingBracket
+Rule 16    equation -> integral openingBracket int comma int comma expression closingBracket
+Rule 17    expression -> expression PLUS expression
+Rule 18    expression -> expression MINUS expression
+Rule 19    expression -> expression DIVIDES expression
+Rule 20    expression -> expression TIMES expression
+Rule 21    expression -> expression power int
+Rule 22    expression -> expression power coefficient
+Rule 23    expression -> openingBracket expression closingBracket
+Rule 24    expression -> expression power openingBracket expression closingBracket
+Rule 25    expression -> int
+Rule 26    expression -> float
+Rule 27    expression -> coefficient
+Rule 28    expression -> pi
+Rule 29    expression -> percentage
+Rule 30    expression -> alpha
+Rule 31    expression -> beta
+Rule 32    expression -> gamma
+Rule 33    expression -> theta
+Rule 34    expression -> infinity
+Rule 35    coefficient -> int variable
+Rule 36    coefficient -> float variable
+Rule 37    coefficient -> coefficient variable
+Rule 38    coefficient -> expression percentage
+Rule 39    coefficient -> int theta
+Rule 40    coefficient -> int beta
+Rule 41    coefficient -> int alpha
+Rule 42    coefficient -> float theta
+Rule 43    coefficient -> float beta
+Rule 44    coefficient -> float alpha
+Rule 45    coefficient -> variable
+Rule 46    trigono -> sin power int
+Rule 47    trigono -> cos power int
+Rule 48    trigono -> tan power int
+Rule 49    trigono -> sin power variable
+Rule 50    trigono -> cos power variable
+Rule 51    trigono -> tan power variable
+Rule 52    equation -> variable equal expression
+Rule 53    logical_expr -> expression equal expression
+Rule 54    logical_expr -> expression bigger expression
+Rule 55    logical_expr -> expression smaller expression
+Rule 56    logical_expr -> expression biggerEqual expression
+Rule 57    logical_expr -> expression smallerEqual expression
+Rule 58    logical_expr -> expression notEqual expression
+Rule 59    logical_expr -> expression approx expression
+Rule 60    assign -> variable equal int
+Rule 61    empty -> <empty>
+
+Terminals, with rules where they appear
+
+DIVIDES              : 19
+MINUS                : 18
+PLUS                 : 17
+TIMES                : 20
+alpha                : 30 41 44
+approx               : 59
+beta                 : 31 40 43
+bigger               : 54
+biggerEqual          : 56
+closingBracket       : 5 6 7 8 9 10 11 12 13 14 15 16 23 24
+comma                : 5 6 7 8 13 13 14 14 15 15 16 16
+cos                  : 11 47 50
+equal                : 52 53 60
+error                : 
+float                : 26 36 42 43 44
+fraction             : 5
+gamma                : 32
+infinity             : 13 15 34
+int                  : 7 14 15 16 16 21 25 35 39 40 41 46 47 48 60
+integral             : 15 16
+log                  : 7 8
+notEqual             : 58
+openingBracket       : 5 6 7 8 9 10 11 12 13 14 15 16 23 24
+percentage           : 29 38
+pi                   : 28
+power                : 21 22 24 46 47 48 49 50 51
+root                 : 6
+sigma                : 13 14
+sin                  : 10 46 49
+smaller              : 55
+smallerEqual         : 57
+tan                  : 12 48 51
+theta                : 33 39 42
+variable             : 8 35 36 37 45 49 50 51 52 60
+
+Nonterminals, with rules where they appear
+
+MiM                  : 0
+assign               : 13 14
+coefficient          : 22 27 37
+empty                : 4
+equation             : 2
+expression           : 1 5 5 6 6 7 8 9 10 11 12 13 14 15 16 17 17 18 18 19 19 20 20 21 22 23 24 24 38 52 53 53 54 54 55 55 56 56 57 57 58 58 59 59
+logical_expr         : 3
+trigono              : 9
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . MiM
+    (1) MiM -> . expression
+    (2) MiM -> . equation
+    (3) MiM -> . logical_expr
+    (4) MiM -> . empty
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (13) equation -> . sigma openingBracket assign comma infinity comma expression closingBracket
+    (14) equation -> . sigma openingBracket assign comma int comma expression closingBracket
+    (15) equation -> . integral openingBracket int comma infinity comma expression closingBracket
+    (16) equation -> . integral openingBracket int comma int comma expression closingBracket
+    (52) equation -> . variable equal expression
+    (53) logical_expr -> . expression equal expression
+    (54) logical_expr -> . expression bigger expression
+    (55) logical_expr -> . expression smaller expression
+    (56) logical_expr -> . expression biggerEqual expression
+    (57) logical_expr -> . expression smallerEqual expression
+    (58) logical_expr -> . expression notEqual expression
+    (59) logical_expr -> . expression approx expression
+    (61) empty -> .
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    sigma           shift and go to state 25
+    integral        shift and go to state 26
+    variable        shift and go to state 11
+    $end            reduce using rule 61 (empty -> .)
+
+    MiM                            shift and go to state 1
+    expression                     shift and go to state 2
+    equation                       shift and go to state 3
+    logical_expr                   shift and go to state 4
+    empty                          shift and go to state 5
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 1
+
+    (0) S' -> MiM .
+
+
+
+state 2
+
+    (1) MiM -> expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (53) logical_expr -> expression . equal expression
+    (54) logical_expr -> expression . bigger expression
+    (55) logical_expr -> expression . smaller expression
+    (56) logical_expr -> expression . biggerEqual expression
+    (57) logical_expr -> expression . smallerEqual expression
+    (58) logical_expr -> expression . notEqual expression
+    (59) logical_expr -> expression . approx expression
+    (38) coefficient -> expression . percentage
+
+    $end            reduce using rule 1 (MiM -> expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    equal           shift and go to state 32
+    bigger          shift and go to state 33
+    smaller         shift and go to state 34
+    biggerEqual     shift and go to state 35
+    smallerEqual    shift and go to state 36
+    notEqual        shift and go to state 37
+    approx          shift and go to state 38
+    percentage      shift and go to state 39
+
+
+state 3
+
+    (2) MiM -> equation .
+
+    $end            reduce using rule 2 (MiM -> equation .)
+
+
+state 4
+
+    (3) MiM -> logical_expr .
+
+    $end            reduce using rule 3 (MiM -> logical_expr .)
+
+
+state 5
+
+    (4) MiM -> empty .
+
+    $end            reduce using rule 4 (MiM -> empty .)
+
+
+state 6
+
+    (5) expression -> fraction . openingBracket expression comma expression closingBracket
+
+    openingBracket  shift and go to state 40
+
+
+state 7
+
+    (23) expression -> openingBracket . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 41
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 8
+
+    (6) expression -> root . openingBracket expression comma expression closingBracket
+
+    openingBracket  shift and go to state 43
+
+
+state 9
+
+    (7) expression -> log . openingBracket int comma expression closingBracket
+    (8) expression -> log . openingBracket variable comma expression closingBracket
+
+    openingBracket  shift and go to state 44
+
+
+state 10
+
+    (25) expression -> int .
+    (35) coefficient -> int . variable
+    (39) coefficient -> int . theta
+    (40) coefficient -> int . beta
+    (41) coefficient -> int . alpha
+
+    PLUS            reduce using rule 25 (expression -> int .)
+    MINUS           reduce using rule 25 (expression -> int .)
+    DIVIDES         reduce using rule 25 (expression -> int .)
+    TIMES           reduce using rule 25 (expression -> int .)
+    power           reduce using rule 25 (expression -> int .)
+    equal           reduce using rule 25 (expression -> int .)
+    bigger          reduce using rule 25 (expression -> int .)
+    smaller         reduce using rule 25 (expression -> int .)
+    biggerEqual     reduce using rule 25 (expression -> int .)
+    smallerEqual    reduce using rule 25 (expression -> int .)
+    notEqual        reduce using rule 25 (expression -> int .)
+    approx          reduce using rule 25 (expression -> int .)
+    percentage      reduce using rule 25 (expression -> int .)
+    $end            reduce using rule 25 (expression -> int .)
+    closingBracket  reduce using rule 25 (expression -> int .)
+    comma           reduce using rule 25 (expression -> int .)
+    variable        shift and go to state 45
+    theta           shift and go to state 46
+    beta            shift and go to state 47
+    alpha           shift and go to state 48
+
+
+state 11
+
+    (52) equation -> variable . equal expression
+    (45) coefficient -> variable .
+
+  ! shift/reduce conflict for equal resolved as shift
+    equal           shift and go to state 49
+    variable        reduce using rule 45 (coefficient -> variable .)
+    PLUS            reduce using rule 45 (coefficient -> variable .)
+    MINUS           reduce using rule 45 (coefficient -> variable .)
+    DIVIDES         reduce using rule 45 (coefficient -> variable .)
+    TIMES           reduce using rule 45 (coefficient -> variable .)
+    power           reduce using rule 45 (coefficient -> variable .)
+    bigger          reduce using rule 45 (coefficient -> variable .)
+    smaller         reduce using rule 45 (coefficient -> variable .)
+    biggerEqual     reduce using rule 45 (coefficient -> variable .)
+    smallerEqual    reduce using rule 45 (coefficient -> variable .)
+    notEqual        reduce using rule 45 (coefficient -> variable .)
+    approx          reduce using rule 45 (coefficient -> variable .)
+    percentage      reduce using rule 45 (coefficient -> variable .)
+    $end            reduce using rule 45 (coefficient -> variable .)
+
+  ! equal           [ reduce using rule 45 (coefficient -> variable .) ]
+
+
+state 12
+
+    (9) expression -> trigono . openingBracket expression closingBracket
+
+    openingBracket  shift and go to state 50
+
+
+state 13
+
+    (10) expression -> sin . openingBracket expression closingBracket
+    (46) trigono -> sin . power int
+    (49) trigono -> sin . power variable
+
+    openingBracket  shift and go to state 51
+    power           shift and go to state 52
+
+
+state 14
+
+    (11) expression -> cos . openingBracket expression closingBracket
+    (47) trigono -> cos . power int
+    (50) trigono -> cos . power variable
+
+    openingBracket  shift and go to state 53
+    power           shift and go to state 54
+
+
+state 15
+
+    (12) expression -> tan . openingBracket expression closingBracket
+    (48) trigono -> tan . power int
+    (51) trigono -> tan . power variable
+
+    openingBracket  shift and go to state 55
+    power           shift and go to state 56
+
+
+state 16
+
+    (27) expression -> coefficient .
+    (37) coefficient -> coefficient . variable
+
+    PLUS            reduce using rule 27 (expression -> coefficient .)
+    MINUS           reduce using rule 27 (expression -> coefficient .)
+    DIVIDES         reduce using rule 27 (expression -> coefficient .)
+    TIMES           reduce using rule 27 (expression -> coefficient .)
+    power           reduce using rule 27 (expression -> coefficient .)
+    equal           reduce using rule 27 (expression -> coefficient .)
+    bigger          reduce using rule 27 (expression -> coefficient .)
+    smaller         reduce using rule 27 (expression -> coefficient .)
+    biggerEqual     reduce using rule 27 (expression -> coefficient .)
+    smallerEqual    reduce using rule 27 (expression -> coefficient .)
+    notEqual        reduce using rule 27 (expression -> coefficient .)
+    approx          reduce using rule 27 (expression -> coefficient .)
+    percentage      reduce using rule 27 (expression -> coefficient .)
+    $end            reduce using rule 27 (expression -> coefficient .)
+    closingBracket  reduce using rule 27 (expression -> coefficient .)
+    comma           reduce using rule 27 (expression -> coefficient .)
+    variable        shift and go to state 57
+
+
+state 17
+
+    (26) expression -> float .
+    (36) coefficient -> float . variable
+    (42) coefficient -> float . theta
+    (43) coefficient -> float . beta
+    (44) coefficient -> float . alpha
+
+    PLUS            reduce using rule 26 (expression -> float .)
+    MINUS           reduce using rule 26 (expression -> float .)
+    DIVIDES         reduce using rule 26 (expression -> float .)
+    TIMES           reduce using rule 26 (expression -> float .)
+    power           reduce using rule 26 (expression -> float .)
+    equal           reduce using rule 26 (expression -> float .)
+    bigger          reduce using rule 26 (expression -> float .)
+    smaller         reduce using rule 26 (expression -> float .)
+    biggerEqual     reduce using rule 26 (expression -> float .)
+    smallerEqual    reduce using rule 26 (expression -> float .)
+    notEqual        reduce using rule 26 (expression -> float .)
+    approx          reduce using rule 26 (expression -> float .)
+    percentage      reduce using rule 26 (expression -> float .)
+    $end            reduce using rule 26 (expression -> float .)
+    closingBracket  reduce using rule 26 (expression -> float .)
+    comma           reduce using rule 26 (expression -> float .)
+    variable        shift and go to state 58
+    theta           shift and go to state 59
+    beta            shift and go to state 60
+    alpha           shift and go to state 61
+
+
+state 18
+
+    (28) expression -> pi .
+
+    PLUS            reduce using rule 28 (expression -> pi .)
+    MINUS           reduce using rule 28 (expression -> pi .)
+    DIVIDES         reduce using rule 28 (expression -> pi .)
+    TIMES           reduce using rule 28 (expression -> pi .)
+    power           reduce using rule 28 (expression -> pi .)
+    equal           reduce using rule 28 (expression -> pi .)
+    bigger          reduce using rule 28 (expression -> pi .)
+    smaller         reduce using rule 28 (expression -> pi .)
+    biggerEqual     reduce using rule 28 (expression -> pi .)
+    smallerEqual    reduce using rule 28 (expression -> pi .)
+    notEqual        reduce using rule 28 (expression -> pi .)
+    approx          reduce using rule 28 (expression -> pi .)
+    percentage      reduce using rule 28 (expression -> pi .)
+    $end            reduce using rule 28 (expression -> pi .)
+    closingBracket  reduce using rule 28 (expression -> pi .)
+    comma           reduce using rule 28 (expression -> pi .)
+
+
+state 19
+
+    (29) expression -> percentage .
+
+    PLUS            reduce using rule 29 (expression -> percentage .)
+    MINUS           reduce using rule 29 (expression -> percentage .)
+    DIVIDES         reduce using rule 29 (expression -> percentage .)
+    TIMES           reduce using rule 29 (expression -> percentage .)
+    power           reduce using rule 29 (expression -> percentage .)
+    equal           reduce using rule 29 (expression -> percentage .)
+    bigger          reduce using rule 29 (expression -> percentage .)
+    smaller         reduce using rule 29 (expression -> percentage .)
+    biggerEqual     reduce using rule 29 (expression -> percentage .)
+    smallerEqual    reduce using rule 29 (expression -> percentage .)
+    notEqual        reduce using rule 29 (expression -> percentage .)
+    approx          reduce using rule 29 (expression -> percentage .)
+    percentage      reduce using rule 29 (expression -> percentage .)
+    $end            reduce using rule 29 (expression -> percentage .)
+    closingBracket  reduce using rule 29 (expression -> percentage .)
+    comma           reduce using rule 29 (expression -> percentage .)
+
+
+state 20
+
+    (30) expression -> alpha .
+
+    PLUS            reduce using rule 30 (expression -> alpha .)
+    MINUS           reduce using rule 30 (expression -> alpha .)
+    DIVIDES         reduce using rule 30 (expression -> alpha .)
+    TIMES           reduce using rule 30 (expression -> alpha .)
+    power           reduce using rule 30 (expression -> alpha .)
+    equal           reduce using rule 30 (expression -> alpha .)
+    bigger          reduce using rule 30 (expression -> alpha .)
+    smaller         reduce using rule 30 (expression -> alpha .)
+    biggerEqual     reduce using rule 30 (expression -> alpha .)
+    smallerEqual    reduce using rule 30 (expression -> alpha .)
+    notEqual        reduce using rule 30 (expression -> alpha .)
+    approx          reduce using rule 30 (expression -> alpha .)
+    percentage      reduce using rule 30 (expression -> alpha .)
+    $end            reduce using rule 30 (expression -> alpha .)
+    closingBracket  reduce using rule 30 (expression -> alpha .)
+    comma           reduce using rule 30 (expression -> alpha .)
+
+
+state 21
+
+    (31) expression -> beta .
+
+    PLUS            reduce using rule 31 (expression -> beta .)
+    MINUS           reduce using rule 31 (expression -> beta .)
+    DIVIDES         reduce using rule 31 (expression -> beta .)
+    TIMES           reduce using rule 31 (expression -> beta .)
+    power           reduce using rule 31 (expression -> beta .)
+    equal           reduce using rule 31 (expression -> beta .)
+    bigger          reduce using rule 31 (expression -> beta .)
+    smaller         reduce using rule 31 (expression -> beta .)
+    biggerEqual     reduce using rule 31 (expression -> beta .)
+    smallerEqual    reduce using rule 31 (expression -> beta .)
+    notEqual        reduce using rule 31 (expression -> beta .)
+    approx          reduce using rule 31 (expression -> beta .)
+    percentage      reduce using rule 31 (expression -> beta .)
+    $end            reduce using rule 31 (expression -> beta .)
+    closingBracket  reduce using rule 31 (expression -> beta .)
+    comma           reduce using rule 31 (expression -> beta .)
+
+
+state 22
+
+    (32) expression -> gamma .
+
+    PLUS            reduce using rule 32 (expression -> gamma .)
+    MINUS           reduce using rule 32 (expression -> gamma .)
+    DIVIDES         reduce using rule 32 (expression -> gamma .)
+    TIMES           reduce using rule 32 (expression -> gamma .)
+    power           reduce using rule 32 (expression -> gamma .)
+    equal           reduce using rule 32 (expression -> gamma .)
+    bigger          reduce using rule 32 (expression -> gamma .)
+    smaller         reduce using rule 32 (expression -> gamma .)
+    biggerEqual     reduce using rule 32 (expression -> gamma .)
+    smallerEqual    reduce using rule 32 (expression -> gamma .)
+    notEqual        reduce using rule 32 (expression -> gamma .)
+    approx          reduce using rule 32 (expression -> gamma .)
+    percentage      reduce using rule 32 (expression -> gamma .)
+    $end            reduce using rule 32 (expression -> gamma .)
+    closingBracket  reduce using rule 32 (expression -> gamma .)
+    comma           reduce using rule 32 (expression -> gamma .)
+
+
+state 23
+
+    (33) expression -> theta .
+
+    PLUS            reduce using rule 33 (expression -> theta .)
+    MINUS           reduce using rule 33 (expression -> theta .)
+    DIVIDES         reduce using rule 33 (expression -> theta .)
+    TIMES           reduce using rule 33 (expression -> theta .)
+    power           reduce using rule 33 (expression -> theta .)
+    equal           reduce using rule 33 (expression -> theta .)
+    bigger          reduce using rule 33 (expression -> theta .)
+    smaller         reduce using rule 33 (expression -> theta .)
+    biggerEqual     reduce using rule 33 (expression -> theta .)
+    smallerEqual    reduce using rule 33 (expression -> theta .)
+    notEqual        reduce using rule 33 (expression -> theta .)
+    approx          reduce using rule 33 (expression -> theta .)
+    percentage      reduce using rule 33 (expression -> theta .)
+    $end            reduce using rule 33 (expression -> theta .)
+    closingBracket  reduce using rule 33 (expression -> theta .)
+    comma           reduce using rule 33 (expression -> theta .)
+
+
+state 24
+
+    (34) expression -> infinity .
+
+    PLUS            reduce using rule 34 (expression -> infinity .)
+    MINUS           reduce using rule 34 (expression -> infinity .)
+    DIVIDES         reduce using rule 34 (expression -> infinity .)
+    TIMES           reduce using rule 34 (expression -> infinity .)
+    power           reduce using rule 34 (expression -> infinity .)
+    equal           reduce using rule 34 (expression -> infinity .)
+    bigger          reduce using rule 34 (expression -> infinity .)
+    smaller         reduce using rule 34 (expression -> infinity .)
+    biggerEqual     reduce using rule 34 (expression -> infinity .)
+    smallerEqual    reduce using rule 34 (expression -> infinity .)
+    notEqual        reduce using rule 34 (expression -> infinity .)
+    approx          reduce using rule 34 (expression -> infinity .)
+    percentage      reduce using rule 34 (expression -> infinity .)
+    $end            reduce using rule 34 (expression -> infinity .)
+    closingBracket  reduce using rule 34 (expression -> infinity .)
+    comma           reduce using rule 34 (expression -> infinity .)
+
+
+state 25
+
+    (13) equation -> sigma . openingBracket assign comma infinity comma expression closingBracket
+    (14) equation -> sigma . openingBracket assign comma int comma expression closingBracket
+
+    openingBracket  shift and go to state 62
+
+
+state 26
+
+    (15) equation -> integral . openingBracket int comma infinity comma expression closingBracket
+    (16) equation -> integral . openingBracket int comma int comma expression closingBracket
+
+    openingBracket  shift and go to state 63
+
+
+state 27
+
+    (17) expression -> expression PLUS . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 64
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 28
+
+    (18) expression -> expression MINUS . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 65
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 29
+
+    (19) expression -> expression DIVIDES . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 66
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 30
+
+    (20) expression -> expression TIMES . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 67
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 31
+
+    (21) expression -> expression power . int
+    (22) expression -> expression power . coefficient
+    (24) expression -> expression power . openingBracket expression closingBracket
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+
+    int             shift and go to state 69
+    openingBracket  shift and go to state 71
+    float           shift and go to state 72
+    variable        shift and go to state 42
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+
+    expression                     shift and go to state 68
+    coefficient                    shift and go to state 70
+    trigono                        shift and go to state 12
+
+state 32
+
+    (53) logical_expr -> expression equal . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 73
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 33
+
+    (54) logical_expr -> expression bigger . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 74
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 34
+
+    (55) logical_expr -> expression smaller . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 75
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 35
+
+    (56) logical_expr -> expression biggerEqual . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 76
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 36
+
+    (57) logical_expr -> expression smallerEqual . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 77
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 37
+
+    (58) logical_expr -> expression notEqual . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 78
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 38
+
+    (59) logical_expr -> expression approx . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 79
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 39
+
+    (38) coefficient -> expression percentage .
+
+    variable        reduce using rule 38 (coefficient -> expression percentage .)
+    PLUS            reduce using rule 38 (coefficient -> expression percentage .)
+    MINUS           reduce using rule 38 (coefficient -> expression percentage .)
+    DIVIDES         reduce using rule 38 (coefficient -> expression percentage .)
+    TIMES           reduce using rule 38 (coefficient -> expression percentage .)
+    power           reduce using rule 38 (coefficient -> expression percentage .)
+    equal           reduce using rule 38 (coefficient -> expression percentage .)
+    bigger          reduce using rule 38 (coefficient -> expression percentage .)
+    smaller         reduce using rule 38 (coefficient -> expression percentage .)
+    biggerEqual     reduce using rule 38 (coefficient -> expression percentage .)
+    smallerEqual    reduce using rule 38 (coefficient -> expression percentage .)
+    notEqual        reduce using rule 38 (coefficient -> expression percentage .)
+    approx          reduce using rule 38 (coefficient -> expression percentage .)
+    percentage      reduce using rule 38 (coefficient -> expression percentage .)
+    $end            reduce using rule 38 (coefficient -> expression percentage .)
+    closingBracket  reduce using rule 38 (coefficient -> expression percentage .)
+    comma           reduce using rule 38 (coefficient -> expression percentage .)
+
+
+state 40
+
+    (5) expression -> fraction openingBracket . expression comma expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 80
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 41
+
+    (23) expression -> openingBracket expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 81
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 42
+
+    (45) coefficient -> variable .
+
+    variable        reduce using rule 45 (coefficient -> variable .)
+    closingBracket  reduce using rule 45 (coefficient -> variable .)
+    PLUS            reduce using rule 45 (coefficient -> variable .)
+    MINUS           reduce using rule 45 (coefficient -> variable .)
+    DIVIDES         reduce using rule 45 (coefficient -> variable .)
+    TIMES           reduce using rule 45 (coefficient -> variable .)
+    power           reduce using rule 45 (coefficient -> variable .)
+    percentage      reduce using rule 45 (coefficient -> variable .)
+    equal           reduce using rule 45 (coefficient -> variable .)
+    bigger          reduce using rule 45 (coefficient -> variable .)
+    smaller         reduce using rule 45 (coefficient -> variable .)
+    biggerEqual     reduce using rule 45 (coefficient -> variable .)
+    smallerEqual    reduce using rule 45 (coefficient -> variable .)
+    notEqual        reduce using rule 45 (coefficient -> variable .)
+    approx          reduce using rule 45 (coefficient -> variable .)
+    $end            reduce using rule 45 (coefficient -> variable .)
+    comma           reduce using rule 45 (coefficient -> variable .)
+
+
+state 43
+
+    (6) expression -> root openingBracket . expression comma expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 82
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 44
+
+    (7) expression -> log openingBracket . int comma expression closingBracket
+    (8) expression -> log openingBracket . variable comma expression closingBracket
+
+    int             shift and go to state 83
+    variable        shift and go to state 84
+
+
+state 45
+
+    (35) coefficient -> int variable .
+
+    variable        reduce using rule 35 (coefficient -> int variable .)
+    PLUS            reduce using rule 35 (coefficient -> int variable .)
+    MINUS           reduce using rule 35 (coefficient -> int variable .)
+    DIVIDES         reduce using rule 35 (coefficient -> int variable .)
+    TIMES           reduce using rule 35 (coefficient -> int variable .)
+    power           reduce using rule 35 (coefficient -> int variable .)
+    equal           reduce using rule 35 (coefficient -> int variable .)
+    bigger          reduce using rule 35 (coefficient -> int variable .)
+    smaller         reduce using rule 35 (coefficient -> int variable .)
+    biggerEqual     reduce using rule 35 (coefficient -> int variable .)
+    smallerEqual    reduce using rule 35 (coefficient -> int variable .)
+    notEqual        reduce using rule 35 (coefficient -> int variable .)
+    approx          reduce using rule 35 (coefficient -> int variable .)
+    percentage      reduce using rule 35 (coefficient -> int variable .)
+    $end            reduce using rule 35 (coefficient -> int variable .)
+    closingBracket  reduce using rule 35 (coefficient -> int variable .)
+    comma           reduce using rule 35 (coefficient -> int variable .)
+
+
+state 46
+
+    (39) coefficient -> int theta .
+
+    variable        reduce using rule 39 (coefficient -> int theta .)
+    PLUS            reduce using rule 39 (coefficient -> int theta .)
+    MINUS           reduce using rule 39 (coefficient -> int theta .)
+    DIVIDES         reduce using rule 39 (coefficient -> int theta .)
+    TIMES           reduce using rule 39 (coefficient -> int theta .)
+    power           reduce using rule 39 (coefficient -> int theta .)
+    equal           reduce using rule 39 (coefficient -> int theta .)
+    bigger          reduce using rule 39 (coefficient -> int theta .)
+    smaller         reduce using rule 39 (coefficient -> int theta .)
+    biggerEqual     reduce using rule 39 (coefficient -> int theta .)
+    smallerEqual    reduce using rule 39 (coefficient -> int theta .)
+    notEqual        reduce using rule 39 (coefficient -> int theta .)
+    approx          reduce using rule 39 (coefficient -> int theta .)
+    percentage      reduce using rule 39 (coefficient -> int theta .)
+    $end            reduce using rule 39 (coefficient -> int theta .)
+    closingBracket  reduce using rule 39 (coefficient -> int theta .)
+    comma           reduce using rule 39 (coefficient -> int theta .)
+
+
+state 47
+
+    (40) coefficient -> int beta .
+
+    variable        reduce using rule 40 (coefficient -> int beta .)
+    PLUS            reduce using rule 40 (coefficient -> int beta .)
+    MINUS           reduce using rule 40 (coefficient -> int beta .)
+    DIVIDES         reduce using rule 40 (coefficient -> int beta .)
+    TIMES           reduce using rule 40 (coefficient -> int beta .)
+    power           reduce using rule 40 (coefficient -> int beta .)
+    equal           reduce using rule 40 (coefficient -> int beta .)
+    bigger          reduce using rule 40 (coefficient -> int beta .)
+    smaller         reduce using rule 40 (coefficient -> int beta .)
+    biggerEqual     reduce using rule 40 (coefficient -> int beta .)
+    smallerEqual    reduce using rule 40 (coefficient -> int beta .)
+    notEqual        reduce using rule 40 (coefficient -> int beta .)
+    approx          reduce using rule 40 (coefficient -> int beta .)
+    percentage      reduce using rule 40 (coefficient -> int beta .)
+    $end            reduce using rule 40 (coefficient -> int beta .)
+    closingBracket  reduce using rule 40 (coefficient -> int beta .)
+    comma           reduce using rule 40 (coefficient -> int beta .)
+
+
+state 48
+
+    (41) coefficient -> int alpha .
+
+    variable        reduce using rule 41 (coefficient -> int alpha .)
+    PLUS            reduce using rule 41 (coefficient -> int alpha .)
+    MINUS           reduce using rule 41 (coefficient -> int alpha .)
+    DIVIDES         reduce using rule 41 (coefficient -> int alpha .)
+    TIMES           reduce using rule 41 (coefficient -> int alpha .)
+    power           reduce using rule 41 (coefficient -> int alpha .)
+    equal           reduce using rule 41 (coefficient -> int alpha .)
+    bigger          reduce using rule 41 (coefficient -> int alpha .)
+    smaller         reduce using rule 41 (coefficient -> int alpha .)
+    biggerEqual     reduce using rule 41 (coefficient -> int alpha .)
+    smallerEqual    reduce using rule 41 (coefficient -> int alpha .)
+    notEqual        reduce using rule 41 (coefficient -> int alpha .)
+    approx          reduce using rule 41 (coefficient -> int alpha .)
+    percentage      reduce using rule 41 (coefficient -> int alpha .)
+    $end            reduce using rule 41 (coefficient -> int alpha .)
+    closingBracket  reduce using rule 41 (coefficient -> int alpha .)
+    comma           reduce using rule 41 (coefficient -> int alpha .)
+
+
+state 49
+
+    (52) equation -> variable equal . expression
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 85
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 50
+
+    (9) expression -> trigono openingBracket . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    trigono                        shift and go to state 12
+    expression                     shift and go to state 86
+    coefficient                    shift and go to state 16
+
+state 51
+
+    (10) expression -> sin openingBracket . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 87
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 52
+
+    (46) trigono -> sin power . int
+    (49) trigono -> sin power . variable
+
+    int             shift and go to state 88
+    variable        shift and go to state 89
+
+
+state 53
+
+    (11) expression -> cos openingBracket . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 90
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 54
+
+    (47) trigono -> cos power . int
+    (50) trigono -> cos power . variable
+
+    int             shift and go to state 91
+    variable        shift and go to state 92
+
+
+state 55
+
+    (12) expression -> tan openingBracket . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 93
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 56
+
+    (48) trigono -> tan power . int
+    (51) trigono -> tan power . variable
+
+    int             shift and go to state 94
+    variable        shift and go to state 95
+
+
+state 57
+
+    (37) coefficient -> coefficient variable .
+
+    variable        reduce using rule 37 (coefficient -> coefficient variable .)
+    PLUS            reduce using rule 37 (coefficient -> coefficient variable .)
+    MINUS           reduce using rule 37 (coefficient -> coefficient variable .)
+    DIVIDES         reduce using rule 37 (coefficient -> coefficient variable .)
+    TIMES           reduce using rule 37 (coefficient -> coefficient variable .)
+    power           reduce using rule 37 (coefficient -> coefficient variable .)
+    equal           reduce using rule 37 (coefficient -> coefficient variable .)
+    bigger          reduce using rule 37 (coefficient -> coefficient variable .)
+    smaller         reduce using rule 37 (coefficient -> coefficient variable .)
+    biggerEqual     reduce using rule 37 (coefficient -> coefficient variable .)
+    smallerEqual    reduce using rule 37 (coefficient -> coefficient variable .)
+    notEqual        reduce using rule 37 (coefficient -> coefficient variable .)
+    approx          reduce using rule 37 (coefficient -> coefficient variable .)
+    percentage      reduce using rule 37 (coefficient -> coefficient variable .)
+    $end            reduce using rule 37 (coefficient -> coefficient variable .)
+    closingBracket  reduce using rule 37 (coefficient -> coefficient variable .)
+    comma           reduce using rule 37 (coefficient -> coefficient variable .)
+
+
+state 58
+
+    (36) coefficient -> float variable .
+
+    variable        reduce using rule 36 (coefficient -> float variable .)
+    PLUS            reduce using rule 36 (coefficient -> float variable .)
+    MINUS           reduce using rule 36 (coefficient -> float variable .)
+    DIVIDES         reduce using rule 36 (coefficient -> float variable .)
+    TIMES           reduce using rule 36 (coefficient -> float variable .)
+    power           reduce using rule 36 (coefficient -> float variable .)
+    equal           reduce using rule 36 (coefficient -> float variable .)
+    bigger          reduce using rule 36 (coefficient -> float variable .)
+    smaller         reduce using rule 36 (coefficient -> float variable .)
+    biggerEqual     reduce using rule 36 (coefficient -> float variable .)
+    smallerEqual    reduce using rule 36 (coefficient -> float variable .)
+    notEqual        reduce using rule 36 (coefficient -> float variable .)
+    approx          reduce using rule 36 (coefficient -> float variable .)
+    percentage      reduce using rule 36 (coefficient -> float variable .)
+    $end            reduce using rule 36 (coefficient -> float variable .)
+    closingBracket  reduce using rule 36 (coefficient -> float variable .)
+    comma           reduce using rule 36 (coefficient -> float variable .)
+
+
+state 59
+
+    (42) coefficient -> float theta .
+
+    variable        reduce using rule 42 (coefficient -> float theta .)
+    PLUS            reduce using rule 42 (coefficient -> float theta .)
+    MINUS           reduce using rule 42 (coefficient -> float theta .)
+    DIVIDES         reduce using rule 42 (coefficient -> float theta .)
+    TIMES           reduce using rule 42 (coefficient -> float theta .)
+    power           reduce using rule 42 (coefficient -> float theta .)
+    equal           reduce using rule 42 (coefficient -> float theta .)
+    bigger          reduce using rule 42 (coefficient -> float theta .)
+    smaller         reduce using rule 42 (coefficient -> float theta .)
+    biggerEqual     reduce using rule 42 (coefficient -> float theta .)
+    smallerEqual    reduce using rule 42 (coefficient -> float theta .)
+    notEqual        reduce using rule 42 (coefficient -> float theta .)
+    approx          reduce using rule 42 (coefficient -> float theta .)
+    percentage      reduce using rule 42 (coefficient -> float theta .)
+    $end            reduce using rule 42 (coefficient -> float theta .)
+    closingBracket  reduce using rule 42 (coefficient -> float theta .)
+    comma           reduce using rule 42 (coefficient -> float theta .)
+
+
+state 60
+
+    (43) coefficient -> float beta .
+
+    variable        reduce using rule 43 (coefficient -> float beta .)
+    PLUS            reduce using rule 43 (coefficient -> float beta .)
+    MINUS           reduce using rule 43 (coefficient -> float beta .)
+    DIVIDES         reduce using rule 43 (coefficient -> float beta .)
+    TIMES           reduce using rule 43 (coefficient -> float beta .)
+    power           reduce using rule 43 (coefficient -> float beta .)
+    equal           reduce using rule 43 (coefficient -> float beta .)
+    bigger          reduce using rule 43 (coefficient -> float beta .)
+    smaller         reduce using rule 43 (coefficient -> float beta .)
+    biggerEqual     reduce using rule 43 (coefficient -> float beta .)
+    smallerEqual    reduce using rule 43 (coefficient -> float beta .)
+    notEqual        reduce using rule 43 (coefficient -> float beta .)
+    approx          reduce using rule 43 (coefficient -> float beta .)
+    percentage      reduce using rule 43 (coefficient -> float beta .)
+    $end            reduce using rule 43 (coefficient -> float beta .)
+    closingBracket  reduce using rule 43 (coefficient -> float beta .)
+    comma           reduce using rule 43 (coefficient -> float beta .)
+
+
+state 61
+
+    (44) coefficient -> float alpha .
+
+    variable        reduce using rule 44 (coefficient -> float alpha .)
+    PLUS            reduce using rule 44 (coefficient -> float alpha .)
+    MINUS           reduce using rule 44 (coefficient -> float alpha .)
+    DIVIDES         reduce using rule 44 (coefficient -> float alpha .)
+    TIMES           reduce using rule 44 (coefficient -> float alpha .)
+    power           reduce using rule 44 (coefficient -> float alpha .)
+    equal           reduce using rule 44 (coefficient -> float alpha .)
+    bigger          reduce using rule 44 (coefficient -> float alpha .)
+    smaller         reduce using rule 44 (coefficient -> float alpha .)
+    biggerEqual     reduce using rule 44 (coefficient -> float alpha .)
+    smallerEqual    reduce using rule 44 (coefficient -> float alpha .)
+    notEqual        reduce using rule 44 (coefficient -> float alpha .)
+    approx          reduce using rule 44 (coefficient -> float alpha .)
+    percentage      reduce using rule 44 (coefficient -> float alpha .)
+    $end            reduce using rule 44 (coefficient -> float alpha .)
+    closingBracket  reduce using rule 44 (coefficient -> float alpha .)
+    comma           reduce using rule 44 (coefficient -> float alpha .)
+
+
+state 62
+
+    (13) equation -> sigma openingBracket . assign comma infinity comma expression closingBracket
+    (14) equation -> sigma openingBracket . assign comma int comma expression closingBracket
+    (60) assign -> . variable equal int
+
+    variable        shift and go to state 97
+
+    assign                         shift and go to state 96
+
+state 63
+
+    (15) equation -> integral openingBracket . int comma infinity comma expression closingBracket
+    (16) equation -> integral openingBracket . int comma int comma expression closingBracket
+
+    int             shift and go to state 98
+
+
+state 64
+
+    (17) expression -> expression PLUS expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDES resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for power resolved as shift
+  ! shift/reduce conflict for percentage resolved as shift
+    equal           reduce using rule 17 (expression -> expression PLUS expression .)
+    bigger          reduce using rule 17 (expression -> expression PLUS expression .)
+    smaller         reduce using rule 17 (expression -> expression PLUS expression .)
+    biggerEqual     reduce using rule 17 (expression -> expression PLUS expression .)
+    smallerEqual    reduce using rule 17 (expression -> expression PLUS expression .)
+    notEqual        reduce using rule 17 (expression -> expression PLUS expression .)
+    approx          reduce using rule 17 (expression -> expression PLUS expression .)
+    $end            reduce using rule 17 (expression -> expression PLUS expression .)
+    closingBracket  reduce using rule 17 (expression -> expression PLUS expression .)
+    comma           reduce using rule 17 (expression -> expression PLUS expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+  ! PLUS            [ reduce using rule 17 (expression -> expression PLUS expression .) ]
+  ! MINUS           [ reduce using rule 17 (expression -> expression PLUS expression .) ]
+  ! DIVIDES         [ reduce using rule 17 (expression -> expression PLUS expression .) ]
+  ! TIMES           [ reduce using rule 17 (expression -> expression PLUS expression .) ]
+  ! power           [ reduce using rule 17 (expression -> expression PLUS expression .) ]
+  ! percentage      [ reduce using rule 17 (expression -> expression PLUS expression .) ]
+
+
+state 65
+
+    (18) expression -> expression MINUS expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDES resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for power resolved as shift
+  ! shift/reduce conflict for percentage resolved as shift
+    equal           reduce using rule 18 (expression -> expression MINUS expression .)
+    bigger          reduce using rule 18 (expression -> expression MINUS expression .)
+    smaller         reduce using rule 18 (expression -> expression MINUS expression .)
+    biggerEqual     reduce using rule 18 (expression -> expression MINUS expression .)
+    smallerEqual    reduce using rule 18 (expression -> expression MINUS expression .)
+    notEqual        reduce using rule 18 (expression -> expression MINUS expression .)
+    approx          reduce using rule 18 (expression -> expression MINUS expression .)
+    $end            reduce using rule 18 (expression -> expression MINUS expression .)
+    closingBracket  reduce using rule 18 (expression -> expression MINUS expression .)
+    comma           reduce using rule 18 (expression -> expression MINUS expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+  ! PLUS            [ reduce using rule 18 (expression -> expression MINUS expression .) ]
+  ! MINUS           [ reduce using rule 18 (expression -> expression MINUS expression .) ]
+  ! DIVIDES         [ reduce using rule 18 (expression -> expression MINUS expression .) ]
+  ! TIMES           [ reduce using rule 18 (expression -> expression MINUS expression .) ]
+  ! power           [ reduce using rule 18 (expression -> expression MINUS expression .) ]
+  ! percentage      [ reduce using rule 18 (expression -> expression MINUS expression .) ]
+
+
+state 66
+
+    (19) expression -> expression DIVIDES expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDES resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for power resolved as shift
+  ! shift/reduce conflict for percentage resolved as shift
+    equal           reduce using rule 19 (expression -> expression DIVIDES expression .)
+    bigger          reduce using rule 19 (expression -> expression DIVIDES expression .)
+    smaller         reduce using rule 19 (expression -> expression DIVIDES expression .)
+    biggerEqual     reduce using rule 19 (expression -> expression DIVIDES expression .)
+    smallerEqual    reduce using rule 19 (expression -> expression DIVIDES expression .)
+    notEqual        reduce using rule 19 (expression -> expression DIVIDES expression .)
+    approx          reduce using rule 19 (expression -> expression DIVIDES expression .)
+    $end            reduce using rule 19 (expression -> expression DIVIDES expression .)
+    closingBracket  reduce using rule 19 (expression -> expression DIVIDES expression .)
+    comma           reduce using rule 19 (expression -> expression DIVIDES expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+  ! PLUS            [ reduce using rule 19 (expression -> expression DIVIDES expression .) ]
+  ! MINUS           [ reduce using rule 19 (expression -> expression DIVIDES expression .) ]
+  ! DIVIDES         [ reduce using rule 19 (expression -> expression DIVIDES expression .) ]
+  ! TIMES           [ reduce using rule 19 (expression -> expression DIVIDES expression .) ]
+  ! power           [ reduce using rule 19 (expression -> expression DIVIDES expression .) ]
+  ! percentage      [ reduce using rule 19 (expression -> expression DIVIDES expression .) ]
+
+
+state 67
+
+    (20) expression -> expression TIMES expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDES resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for power resolved as shift
+  ! shift/reduce conflict for percentage resolved as shift
+    equal           reduce using rule 20 (expression -> expression TIMES expression .)
+    bigger          reduce using rule 20 (expression -> expression TIMES expression .)
+    smaller         reduce using rule 20 (expression -> expression TIMES expression .)
+    biggerEqual     reduce using rule 20 (expression -> expression TIMES expression .)
+    smallerEqual    reduce using rule 20 (expression -> expression TIMES expression .)
+    notEqual        reduce using rule 20 (expression -> expression TIMES expression .)
+    approx          reduce using rule 20 (expression -> expression TIMES expression .)
+    $end            reduce using rule 20 (expression -> expression TIMES expression .)
+    closingBracket  reduce using rule 20 (expression -> expression TIMES expression .)
+    comma           reduce using rule 20 (expression -> expression TIMES expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+  ! PLUS            [ reduce using rule 20 (expression -> expression TIMES expression .) ]
+  ! MINUS           [ reduce using rule 20 (expression -> expression TIMES expression .) ]
+  ! DIVIDES         [ reduce using rule 20 (expression -> expression TIMES expression .) ]
+  ! TIMES           [ reduce using rule 20 (expression -> expression TIMES expression .) ]
+  ! power           [ reduce using rule 20 (expression -> expression TIMES expression .) ]
+  ! percentage      [ reduce using rule 20 (expression -> expression TIMES expression .) ]
+
+
+state 68
+
+    (38) coefficient -> expression . percentage
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+
+    percentage      shift and go to state 39
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+
+
+state 69
+
+    (21) expression -> expression power int .
+    (35) coefficient -> int . variable
+    (39) coefficient -> int . theta
+    (40) coefficient -> int . beta
+    (41) coefficient -> int . alpha
+    (25) expression -> int .
+
+  ! reduce/reduce conflict for percentage resolved using rule 21 (expression -> expression power int .)
+  ! reduce/reduce conflict for PLUS resolved using rule 21 (expression -> expression power int .)
+  ! reduce/reduce conflict for MINUS resolved using rule 21 (expression -> expression power int .)
+  ! reduce/reduce conflict for DIVIDES resolved using rule 21 (expression -> expression power int .)
+  ! reduce/reduce conflict for TIMES resolved using rule 21 (expression -> expression power int .)
+  ! reduce/reduce conflict for power resolved using rule 21 (expression -> expression power int .)
+    PLUS            reduce using rule 21 (expression -> expression power int .)
+    MINUS           reduce using rule 21 (expression -> expression power int .)
+    DIVIDES         reduce using rule 21 (expression -> expression power int .)
+    TIMES           reduce using rule 21 (expression -> expression power int .)
+    power           reduce using rule 21 (expression -> expression power int .)
+    equal           reduce using rule 21 (expression -> expression power int .)
+    bigger          reduce using rule 21 (expression -> expression power int .)
+    smaller         reduce using rule 21 (expression -> expression power int .)
+    biggerEqual     reduce using rule 21 (expression -> expression power int .)
+    smallerEqual    reduce using rule 21 (expression -> expression power int .)
+    notEqual        reduce using rule 21 (expression -> expression power int .)
+    approx          reduce using rule 21 (expression -> expression power int .)
+    percentage      reduce using rule 21 (expression -> expression power int .)
+    $end            reduce using rule 21 (expression -> expression power int .)
+    closingBracket  reduce using rule 21 (expression -> expression power int .)
+    comma           reduce using rule 21 (expression -> expression power int .)
+    variable        shift and go to state 45
+    theta           shift and go to state 46
+    beta            shift and go to state 47
+    alpha           shift and go to state 48
+
+  ! percentage      [ reduce using rule 25 (expression -> int .) ]
+  ! PLUS            [ reduce using rule 25 (expression -> int .) ]
+  ! MINUS           [ reduce using rule 25 (expression -> int .) ]
+  ! DIVIDES         [ reduce using rule 25 (expression -> int .) ]
+  ! TIMES           [ reduce using rule 25 (expression -> int .) ]
+  ! power           [ reduce using rule 25 (expression -> int .) ]
+
+
+state 70
+
+    (22) expression -> expression power coefficient .
+    (37) coefficient -> coefficient . variable
+    (27) expression -> coefficient .
+
+  ! reduce/reduce conflict for percentage resolved using rule 22 (expression -> expression power coefficient .)
+  ! reduce/reduce conflict for PLUS resolved using rule 22 (expression -> expression power coefficient .)
+  ! reduce/reduce conflict for MINUS resolved using rule 22 (expression -> expression power coefficient .)
+  ! reduce/reduce conflict for DIVIDES resolved using rule 22 (expression -> expression power coefficient .)
+  ! reduce/reduce conflict for TIMES resolved using rule 22 (expression -> expression power coefficient .)
+  ! reduce/reduce conflict for power resolved using rule 22 (expression -> expression power coefficient .)
+    PLUS            reduce using rule 22 (expression -> expression power coefficient .)
+    MINUS           reduce using rule 22 (expression -> expression power coefficient .)
+    DIVIDES         reduce using rule 22 (expression -> expression power coefficient .)
+    TIMES           reduce using rule 22 (expression -> expression power coefficient .)
+    power           reduce using rule 22 (expression -> expression power coefficient .)
+    equal           reduce using rule 22 (expression -> expression power coefficient .)
+    bigger          reduce using rule 22 (expression -> expression power coefficient .)
+    smaller         reduce using rule 22 (expression -> expression power coefficient .)
+    biggerEqual     reduce using rule 22 (expression -> expression power coefficient .)
+    smallerEqual    reduce using rule 22 (expression -> expression power coefficient .)
+    notEqual        reduce using rule 22 (expression -> expression power coefficient .)
+    approx          reduce using rule 22 (expression -> expression power coefficient .)
+    percentage      reduce using rule 22 (expression -> expression power coefficient .)
+    $end            reduce using rule 22 (expression -> expression power coefficient .)
+    closingBracket  reduce using rule 22 (expression -> expression power coefficient .)
+    comma           reduce using rule 22 (expression -> expression power coefficient .)
+    variable        shift and go to state 57
+
+  ! percentage      [ reduce using rule 27 (expression -> coefficient .) ]
+  ! PLUS            [ reduce using rule 27 (expression -> coefficient .) ]
+  ! MINUS           [ reduce using rule 27 (expression -> coefficient .) ]
+  ! DIVIDES         [ reduce using rule 27 (expression -> coefficient .) ]
+  ! TIMES           [ reduce using rule 27 (expression -> coefficient .) ]
+  ! power           [ reduce using rule 27 (expression -> coefficient .) ]
+
+
+state 71
+
+    (24) expression -> expression power openingBracket . expression closingBracket
+    (23) expression -> openingBracket . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 99
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 72
+
+    (36) coefficient -> float . variable
+    (42) coefficient -> float . theta
+    (43) coefficient -> float . beta
+    (44) coefficient -> float . alpha
+    (26) expression -> float .
+
+    variable        shift and go to state 58
+    theta           shift and go to state 59
+    beta            shift and go to state 60
+    alpha           shift and go to state 61
+    percentage      reduce using rule 26 (expression -> float .)
+    PLUS            reduce using rule 26 (expression -> float .)
+    MINUS           reduce using rule 26 (expression -> float .)
+    DIVIDES         reduce using rule 26 (expression -> float .)
+    TIMES           reduce using rule 26 (expression -> float .)
+    power           reduce using rule 26 (expression -> float .)
+
+
+state 73
+
+    (53) logical_expr -> expression equal expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    $end            reduce using rule 53 (logical_expr -> expression equal expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 74
+
+    (54) logical_expr -> expression bigger expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    $end            reduce using rule 54 (logical_expr -> expression bigger expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 75
+
+    (55) logical_expr -> expression smaller expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    $end            reduce using rule 55 (logical_expr -> expression smaller expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 76
+
+    (56) logical_expr -> expression biggerEqual expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    $end            reduce using rule 56 (logical_expr -> expression biggerEqual expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 77
+
+    (57) logical_expr -> expression smallerEqual expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    $end            reduce using rule 57 (logical_expr -> expression smallerEqual expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 78
+
+    (58) logical_expr -> expression notEqual expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    $end            reduce using rule 58 (logical_expr -> expression notEqual expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 79
+
+    (59) logical_expr -> expression approx expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    $end            reduce using rule 59 (logical_expr -> expression approx expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 80
+
+    (5) expression -> fraction openingBracket expression . comma expression closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    comma           shift and go to state 100
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 81
+
+    (23) expression -> openingBracket expression closingBracket .
+
+    PLUS            reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    MINUS           reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    DIVIDES         reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    TIMES           reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    power           reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    equal           reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    bigger          reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    smaller         reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    biggerEqual     reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    smallerEqual    reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    notEqual        reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    approx          reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    percentage      reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    $end            reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    closingBracket  reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    comma           reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+
+
+state 82
+
+    (6) expression -> root openingBracket expression . comma expression closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    comma           shift and go to state 101
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 83
+
+    (7) expression -> log openingBracket int . comma expression closingBracket
+
+    comma           shift and go to state 102
+
+
+state 84
+
+    (8) expression -> log openingBracket variable . comma expression closingBracket
+
+    comma           shift and go to state 103
+
+
+state 85
+
+    (52) equation -> variable equal expression .
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    $end            reduce using rule 52 (equation -> variable equal expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 86
+
+    (9) expression -> trigono openingBracket expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 104
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 87
+
+    (10) expression -> sin openingBracket expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 105
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 88
+
+    (46) trigono -> sin power int .
+
+    openingBracket  reduce using rule 46 (trigono -> sin power int .)
+
+
+state 89
+
+    (49) trigono -> sin power variable .
+
+    openingBracket  reduce using rule 49 (trigono -> sin power variable .)
+
+
+state 90
+
+    (11) expression -> cos openingBracket expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 106
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 91
+
+    (47) trigono -> cos power int .
+
+    openingBracket  reduce using rule 47 (trigono -> cos power int .)
+
+
+state 92
+
+    (50) trigono -> cos power variable .
+
+    openingBracket  reduce using rule 50 (trigono -> cos power variable .)
+
+
+state 93
+
+    (12) expression -> tan openingBracket expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 107
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 94
+
+    (48) trigono -> tan power int .
+
+    openingBracket  reduce using rule 48 (trigono -> tan power int .)
+
+
+state 95
+
+    (51) trigono -> tan power variable .
+
+    openingBracket  reduce using rule 51 (trigono -> tan power variable .)
+
+
+state 96
+
+    (13) equation -> sigma openingBracket assign . comma infinity comma expression closingBracket
+    (14) equation -> sigma openingBracket assign . comma int comma expression closingBracket
+
+    comma           shift and go to state 108
+
+
+state 97
+
+    (60) assign -> variable . equal int
+
+    equal           shift and go to state 109
+
+
+state 98
+
+    (15) equation -> integral openingBracket int . comma infinity comma expression closingBracket
+    (16) equation -> integral openingBracket int . comma int comma expression closingBracket
+
+    comma           shift and go to state 110
+
+
+state 99
+
+    (24) expression -> expression power openingBracket expression . closingBracket
+    (23) expression -> openingBracket expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 111
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 100
+
+    (5) expression -> fraction openingBracket expression comma . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 112
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 101
+
+    (6) expression -> root openingBracket expression comma . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 113
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 102
+
+    (7) expression -> log openingBracket int comma . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 114
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 103
+
+    (8) expression -> log openingBracket variable comma . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 115
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 104
+
+    (9) expression -> trigono openingBracket expression closingBracket .
+
+    PLUS            reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    MINUS           reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    DIVIDES         reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    TIMES           reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    power           reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    equal           reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    bigger          reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    smaller         reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    biggerEqual     reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    smallerEqual    reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    notEqual        reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    approx          reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    percentage      reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    $end            reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    closingBracket  reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+    comma           reduce using rule 9 (expression -> trigono openingBracket expression closingBracket .)
+
+
+state 105
+
+    (10) expression -> sin openingBracket expression closingBracket .
+
+    PLUS            reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    MINUS           reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    DIVIDES         reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    TIMES           reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    power           reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    equal           reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    bigger          reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    smaller         reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    biggerEqual     reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    smallerEqual    reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    notEqual        reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    approx          reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    percentage      reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    $end            reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    closingBracket  reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+    comma           reduce using rule 10 (expression -> sin openingBracket expression closingBracket .)
+
+
+state 106
+
+    (11) expression -> cos openingBracket expression closingBracket .
+
+    PLUS            reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    MINUS           reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    DIVIDES         reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    TIMES           reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    power           reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    equal           reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    bigger          reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    smaller         reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    biggerEqual     reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    smallerEqual    reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    notEqual        reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    approx          reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    percentage      reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    $end            reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    closingBracket  reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+    comma           reduce using rule 11 (expression -> cos openingBracket expression closingBracket .)
+
+
+state 107
+
+    (12) expression -> tan openingBracket expression closingBracket .
+
+    PLUS            reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    MINUS           reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    DIVIDES         reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    TIMES           reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    power           reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    equal           reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    bigger          reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    smaller         reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    biggerEqual     reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    smallerEqual    reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    notEqual        reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    approx          reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    percentage      reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    $end            reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    closingBracket  reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+    comma           reduce using rule 12 (expression -> tan openingBracket expression closingBracket .)
+
+
+state 108
+
+    (13) equation -> sigma openingBracket assign comma . infinity comma expression closingBracket
+    (14) equation -> sigma openingBracket assign comma . int comma expression closingBracket
+
+    infinity        shift and go to state 116
+    int             shift and go to state 117
+
+
+state 109
+
+    (60) assign -> variable equal . int
+
+    int             shift and go to state 118
+
+
+state 110
+
+    (15) equation -> integral openingBracket int comma . infinity comma expression closingBracket
+    (16) equation -> integral openingBracket int comma . int comma expression closingBracket
+
+    infinity        shift and go to state 120
+    int             shift and go to state 119
+
+
+state 111
+
+    (24) expression -> expression power openingBracket expression closingBracket .
+    (23) expression -> openingBracket expression closingBracket .
+
+  ! reduce/reduce conflict for percentage resolved using rule 23 (expression -> openingBracket expression closingBracket .)
+  ! reduce/reduce conflict for PLUS resolved using rule 23 (expression -> openingBracket expression closingBracket .)
+  ! reduce/reduce conflict for MINUS resolved using rule 23 (expression -> openingBracket expression closingBracket .)
+  ! reduce/reduce conflict for DIVIDES resolved using rule 23 (expression -> openingBracket expression closingBracket .)
+  ! reduce/reduce conflict for TIMES resolved using rule 23 (expression -> openingBracket expression closingBracket .)
+  ! reduce/reduce conflict for power resolved using rule 23 (expression -> openingBracket expression closingBracket .)
+    equal           reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .)
+    bigger          reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .)
+    smaller         reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .)
+    biggerEqual     reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .)
+    smallerEqual    reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .)
+    notEqual        reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .)
+    approx          reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .)
+    $end            reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .)
+    closingBracket  reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .)
+    comma           reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .)
+    percentage      reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    PLUS            reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    MINUS           reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    DIVIDES         reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    TIMES           reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+    power           reduce using rule 23 (expression -> openingBracket expression closingBracket .)
+
+  ! PLUS            [ reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .) ]
+  ! MINUS           [ reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .) ]
+  ! DIVIDES         [ reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .) ]
+  ! TIMES           [ reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .) ]
+  ! power           [ reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .) ]
+  ! percentage      [ reduce using rule 24 (expression -> expression power openingBracket expression closingBracket .) ]
+
+
+state 112
+
+    (5) expression -> fraction openingBracket expression comma expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 121
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 113
+
+    (6) expression -> root openingBracket expression comma expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 122
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 114
+
+    (7) expression -> log openingBracket int comma expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 123
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 115
+
+    (8) expression -> log openingBracket variable comma expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 124
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 116
+
+    (13) equation -> sigma openingBracket assign comma infinity . comma expression closingBracket
+
+    comma           shift and go to state 125
+
+
+state 117
+
+    (14) equation -> sigma openingBracket assign comma int . comma expression closingBracket
+
+    comma           shift and go to state 126
+
+
+state 118
+
+    (60) assign -> variable equal int .
+
+    comma           reduce using rule 60 (assign -> variable equal int .)
+
+
+state 119
+
+    (16) equation -> integral openingBracket int comma int . comma expression closingBracket
+
+    comma           shift and go to state 127
+
+
+state 120
+
+    (15) equation -> integral openingBracket int comma infinity . comma expression closingBracket
+
+    comma           shift and go to state 128
+
+
+state 121
+
+    (5) expression -> fraction openingBracket expression comma expression closingBracket .
+
+    PLUS            reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    MINUS           reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    DIVIDES         reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    TIMES           reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    power           reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    equal           reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    bigger          reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    smaller         reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    biggerEqual     reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    smallerEqual    reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    notEqual        reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    approx          reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    percentage      reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    $end            reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    closingBracket  reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+    comma           reduce using rule 5 (expression -> fraction openingBracket expression comma expression closingBracket .)
+
+
+state 122
+
+    (6) expression -> root openingBracket expression comma expression closingBracket .
+
+    PLUS            reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    MINUS           reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    DIVIDES         reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    TIMES           reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    power           reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    equal           reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    bigger          reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    smaller         reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    biggerEqual     reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    smallerEqual    reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    notEqual        reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    approx          reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    percentage      reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    $end            reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    closingBracket  reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+    comma           reduce using rule 6 (expression -> root openingBracket expression comma expression closingBracket .)
+
+
+state 123
+
+    (7) expression -> log openingBracket int comma expression closingBracket .
+
+    PLUS            reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    MINUS           reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    DIVIDES         reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    TIMES           reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    power           reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    equal           reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    bigger          reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    smaller         reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    biggerEqual     reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    smallerEqual    reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    notEqual        reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    approx          reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    percentage      reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    $end            reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    closingBracket  reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+    comma           reduce using rule 7 (expression -> log openingBracket int comma expression closingBracket .)
+
+
+state 124
+
+    (8) expression -> log openingBracket variable comma expression closingBracket .
+
+    PLUS            reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    MINUS           reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    DIVIDES         reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    TIMES           reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    power           reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    equal           reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    bigger          reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    smaller         reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    biggerEqual     reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    smallerEqual    reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    notEqual        reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    approx          reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    percentage      reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    $end            reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    closingBracket  reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+    comma           reduce using rule 8 (expression -> log openingBracket variable comma expression closingBracket .)
+
+
+state 125
+
+    (13) equation -> sigma openingBracket assign comma infinity comma . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 129
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 126
+
+    (14) equation -> sigma openingBracket assign comma int comma . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 130
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 127
+
+    (16) equation -> integral openingBracket int comma int comma . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 131
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 128
+
+    (15) equation -> integral openingBracket int comma infinity comma . expression closingBracket
+    (5) expression -> . fraction openingBracket expression comma expression closingBracket
+    (6) expression -> . root openingBracket expression comma expression closingBracket
+    (7) expression -> . log openingBracket int comma expression closingBracket
+    (8) expression -> . log openingBracket variable comma expression closingBracket
+    (9) expression -> . trigono openingBracket expression closingBracket
+    (10) expression -> . sin openingBracket expression closingBracket
+    (11) expression -> . cos openingBracket expression closingBracket
+    (12) expression -> . tan openingBracket expression closingBracket
+    (17) expression -> . expression PLUS expression
+    (18) expression -> . expression MINUS expression
+    (19) expression -> . expression DIVIDES expression
+    (20) expression -> . expression TIMES expression
+    (21) expression -> . expression power int
+    (22) expression -> . expression power coefficient
+    (23) expression -> . openingBracket expression closingBracket
+    (24) expression -> . expression power openingBracket expression closingBracket
+    (25) expression -> . int
+    (26) expression -> . float
+    (27) expression -> . coefficient
+    (28) expression -> . pi
+    (29) expression -> . percentage
+    (30) expression -> . alpha
+    (31) expression -> . beta
+    (32) expression -> . gamma
+    (33) expression -> . theta
+    (34) expression -> . infinity
+    (46) trigono -> . sin power int
+    (47) trigono -> . cos power int
+    (48) trigono -> . tan power int
+    (49) trigono -> . sin power variable
+    (50) trigono -> . cos power variable
+    (51) trigono -> . tan power variable
+    (35) coefficient -> . int variable
+    (36) coefficient -> . float variable
+    (37) coefficient -> . coefficient variable
+    (38) coefficient -> . expression percentage
+    (39) coefficient -> . int theta
+    (40) coefficient -> . int beta
+    (41) coefficient -> . int alpha
+    (42) coefficient -> . float theta
+    (43) coefficient -> . float beta
+    (44) coefficient -> . float alpha
+    (45) coefficient -> . variable
+
+    fraction        shift and go to state 6
+    root            shift and go to state 8
+    log             shift and go to state 9
+    sin             shift and go to state 13
+    cos             shift and go to state 14
+    tan             shift and go to state 15
+    openingBracket  shift and go to state 7
+    int             shift and go to state 10
+    float           shift and go to state 17
+    pi              shift and go to state 18
+    percentage      shift and go to state 19
+    alpha           shift and go to state 20
+    beta            shift and go to state 21
+    gamma           shift and go to state 22
+    theta           shift and go to state 23
+    infinity        shift and go to state 24
+    variable        shift and go to state 42
+
+    expression                     shift and go to state 132
+    trigono                        shift and go to state 12
+    coefficient                    shift and go to state 16
+
+state 129
+
+    (13) equation -> sigma openingBracket assign comma infinity comma expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 133
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 130
+
+    (14) equation -> sigma openingBracket assign comma int comma expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 134
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 131
+
+    (16) equation -> integral openingBracket int comma int comma expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 135
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 132
+
+    (15) equation -> integral openingBracket int comma infinity comma expression . closingBracket
+    (17) expression -> expression . PLUS expression
+    (18) expression -> expression . MINUS expression
+    (19) expression -> expression . DIVIDES expression
+    (20) expression -> expression . TIMES expression
+    (21) expression -> expression . power int
+    (22) expression -> expression . power coefficient
+    (24) expression -> expression . power openingBracket expression closingBracket
+    (38) coefficient -> expression . percentage
+
+    closingBracket  shift and go to state 136
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    DIVIDES         shift and go to state 29
+    TIMES           shift and go to state 30
+    power           shift and go to state 31
+    percentage      shift and go to state 39
+
+
+state 133
+
+    (13) equation -> sigma openingBracket assign comma infinity comma expression closingBracket .
+
+    $end            reduce using rule 13 (equation -> sigma openingBracket assign comma infinity comma expression closingBracket .)
+
+
+state 134
+
+    (14) equation -> sigma openingBracket assign comma int comma expression closingBracket .
+
+    $end            reduce using rule 14 (equation -> sigma openingBracket assign comma int comma expression closingBracket .)
+
+
+state 135
+
+    (16) equation -> integral openingBracket int comma int comma expression closingBracket .
+
+    $end            reduce using rule 16 (equation -> integral openingBracket int comma int comma expression closingBracket .)
+
+
+state 136
+
+    (15) equation -> integral openingBracket int comma infinity comma expression closingBracket .
+
+    $end            reduce using rule 15 (equation -> integral openingBracket int comma infinity comma expression closingBracket .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for equal in state 11 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 64 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 64 resolved as shift
+WARNING: shift/reduce conflict for DIVIDES in state 64 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 64 resolved as shift
+WARNING: shift/reduce conflict for power in state 64 resolved as shift
+WARNING: shift/reduce conflict for percentage in state 64 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 65 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 65 resolved as shift
+WARNING: shift/reduce conflict for DIVIDES in state 65 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 65 resolved as shift
+WARNING: shift/reduce conflict for power in state 65 resolved as shift
+WARNING: shift/reduce conflict for percentage in state 65 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 66 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 66 resolved as shift
+WARNING: shift/reduce conflict for DIVIDES in state 66 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 66 resolved as shift
+WARNING: shift/reduce conflict for power in state 66 resolved as shift
+WARNING: shift/reduce conflict for percentage in state 66 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 67 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 67 resolved as shift
+WARNING: shift/reduce conflict for DIVIDES in state 67 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 67 resolved as shift
+WARNING: shift/reduce conflict for power in state 67 resolved as shift
+WARNING: shift/reduce conflict for percentage in state 67 resolved as shift
+WARNING: reduce/reduce conflict in state 69 resolved using rule (expression -> expression power int)
+WARNING: rejected rule (expression -> int) in state 69
+WARNING: reduce/reduce conflict in state 70 resolved using rule (expression -> expression power coefficient)
+WARNING: rejected rule (expression -> coefficient) in state 70
+WARNING: reduce/reduce conflict in state 111 resolved using rule (expression -> openingBracket expression closingBracket)
+WARNING: rejected rule (expression -> expression power openingBracket expression closingBracket) in state 111
